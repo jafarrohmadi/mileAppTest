@@ -38,3 +38,6 @@ https://documenter.getpostman.com/view/276896/TVReeqs9
 
 - for test type phpunit in console
 
+different put and patch
+put digunakan untuk mengubah semua field kecuali id
+pacth digunakan untuk mengubah sebagian field 

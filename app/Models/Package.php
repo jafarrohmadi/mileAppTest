@@ -39,4 +39,37 @@ class Package extends Model
         "custom_field",
         "currentLocation",
     ];
+
+    /**
+     * Validation rules
+     *
+     * @var array
+     */
+    public static $rules = [
+        "transaction_id"                     => 'required',
+        "customer_name"                      => 'required|min:1|max:100',
+        "customer_code"                      => 'required|numeric',
+        "transaction_amount"                 => 'required|numeric',
+        "transaction_discount"               => 'required',
+        "transaction_payment_type"           => 'required',
+        "transaction_state"                  => 'required',
+        "transaction_code"                   => 'required|size:16',
+        "transaction_order"                  => 'required',
+        "location_id"                        => 'required',
+        "organization_id"                    => 'required',
+        "transaction_payment_type_name"      => 'required',
+        "transaction_cash_amount"            => 'required',
+        "transaction_cash_change"            => 'required',
+        "customer_attribute"                 => 'required|array|min:3',
+        "customer_attribute.Nama_Sales"      => 'required',
+        "customer_attribute.TOP"             => 'required',
+        "customer_attribute.Jenis_Pelanggan" => 'required',
+        "connote"                            => 'required|array',
+        "connote_id"                         => 'required',
+        "origin_data"                        => 'required|array',
+        "destination_data"                   => 'required|array',
+        "koli_data"                          => 'required|array',
+        "custom_field"                       => 'required|array',
+        "currentLocation"                    => 'required|array',
+    ];
 }

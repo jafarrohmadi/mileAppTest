@@ -3,9 +3,9 @@
 namespace App\Http\Requests\API;
 
 use App\Models\Package;
-use Illuminate\Http\Request;
+use Illuminate\Foundation\Http\FormRequest;
 
-class UpdatePackageAPIRequest extends Request
+class UpdatePackageAPIRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -24,8 +24,18 @@ class UpdatePackageAPIRequest extends Request
      */
     public function rules()
     {
-        $rules = Package::$rules;
+        switch ($this->method()) {
+            case 'PATCH':
+            {
+                return [];
+            }
+            case 'PUT':
+            {
+                return Package::$rules;
+            }
+            default:
+                break;
+        }
 
-        return $rules;
     }
 }
