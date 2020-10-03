@@ -58,7 +58,7 @@ class PackageApiTest extends TestCase
     /**
      * @test
      */
-    public function test_update_package()
+    public function test_put_package()
     {
         $package = factory(Package::class)->create();
         $editedPackage = factory(Package::class)->make()->toArray();
@@ -71,6 +71,24 @@ class PackageApiTest extends TestCase
 
         $this->assertApiResponse('Package updated successfully',$editedPackage);
     }
+
+    /**
+     * @test
+     */
+    public function test_patch_package()
+    {
+        $package = factory(Package::class)->create();
+        $editedPackage = ["customer_name" => "PATCH DATA"];
+
+        $this->response = $this->json(
+            'PATCH',
+            '/api/packages/' . $package->id,
+            $editedPackage
+        );
+
+        $this->assertApiResponse('Package updated successfully',$editedPackage);
+    }
+
 
     /**
      * @test
